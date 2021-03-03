@@ -1,0 +1,93 @@
+<!--
+ Copyright (c) 2014, 2021, Oracle and/or its affiliates.
+ Licensed under The Universal Permissive License (UPL), Version 1.0
+ as shown at https://oss.oracle.com/licenses/upl/
+ -->
+<div class="oj-hybrid-padding">
+  <div id="sampleDemo" class="demo-padding demo-container">
+    <div class="oj-panel oj-sm-margin-4x-vertical demo-mypanel">
+      <div
+        class="oj-flex oj-sm-flex-items-initial"
+        style="justify-content: space-between"
+      >
+        <div class="oj-flex-item oj-sm-padding-2x-horizontal">
+          <code>Add Identification</code>
+        </div>
+        <div
+          slot="end"
+          data-bind="css: groupCssClass"
+          class="oj-flex-item oj-ux-ico-success-s oj-ux-icon-size-6x"
+          role="img"
+          aria-label="success"
+        ></div>
+      </div>
+    </div>
+    <div id="componentDemoContent" style="width: 1px; min-width: 100%">
+      <oj-validation-group id="tracker" valid="{{groupValid}}">
+        <oj-form-layout
+          class="oj-formlayout-full-width"
+          label-edge="inside"
+          max-columns="1"
+          direction="row"
+        >
+          <oj-input-text
+            value="{{name}}"
+            validators="[[nameValidator]]"
+            required
+            label-hint="Name"
+            valid="{{nameValid}}"
+            length="[[{
+              max: 44,
+              'count-by': 'codeUnit'
+            }]]"
+          >
+            <div
+              data-bind="css: nameCssClass"
+              slot="end"
+              class="oj-sm-padding-2x-horizontal oj-text-field-start-end-icon oj-ux-ico-success-s"
+              role="img"
+            ></div>
+          </oj-input-text>
+          <oj-input-text
+            value="{{longName}}"
+            required
+            validators="[[longNameValidator]]"
+            label-hint="Long Name"
+            valid="{{longNameValid}}"
+            length="[[{
+              max: 255,
+              'count-by': 'codeUnit'
+            }]]"
+          >
+            <div
+              data-bind="css: longNameCssClass"
+              slot="end"
+              class="oj-sm-padding-2x-horizontal oj-text-field-start-end-icon oj-ux-ico-success-s"
+              role="img"
+            ></div>
+          </oj-input-text>
+          <oj-text-area
+            value="{{discription}}"
+            validators="[[discriptionValidator]]"
+            label-hint="Discription"
+            valid="{{discriptionValid}}"
+            length="[[{
+              max: 4000,
+              counter: 'remainig',
+              'count-by': 'codeUnit'
+            }]]"
+          >
+          </oj-text-area>
+        </oj-form-layout>
+      </oj-validation-group>
+    </div>
+    <oj-button
+      on-oj-action="[[onSubmit]]"
+      class="oj-sm-width-full"
+      chroming="callToAction"
+    >
+      Submit
+    </oj-button>
+  </div>
+  <!-- <oj-bind-text value="{{info}}"></oj-bind-text> -->
+</div>
